@@ -286,9 +286,9 @@ export default function Home() {
           </span>
           <span className={styles.heroLine}>ENTERTAINED</span>
         </h1>
-        <button className={styles.getInTouchBtn}>
+        <Link href="/contact" className={styles.getInTouchBtn}>
           GET IN TOUCH <ArrowUpRightIcon size={14} />
-        </button>
+        </Link>
       </section>
 
       <section className={styles.servicesList}>
