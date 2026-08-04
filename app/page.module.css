@@ -610,7 +610,7 @@
   }
 
   .serviceRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px;
   }
 
@@ -619,17 +619,38 @@
   }
 
   .serviceBody {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .chatBadge {
     position: static;
-    align-self: flex-start;
+    justify-self: start;
+    width: fit-content;
     margin-top: 12px;
   }
 
+  .floatingActions {
+    display: none;
+  }
+
+  .serviceImages {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    margin: 8px -24px 0;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .serviceImage {
+    width: 170px;
+    height: 120px;
+    scroll-snap-align: start;
+  }
+
   .featureRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contactHeading {
@@ -639,13 +660,14 @@
   }
 
   .carouselSlide {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 28px 24px 56px;
     text-align: center;
   }
 
   .carouselImage {
     max-height: 180px;
+    max-width: 100%;
     justify-self: center;
     width: auto;
   }
