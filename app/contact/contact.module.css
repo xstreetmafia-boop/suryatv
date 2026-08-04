@@ -1,0 +1,215 @@
+.page {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 56px 100px;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  top: -120px;
+  left: 220px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, var(--accent-blue) 0%, transparent 65%);
+  opacity: 0.55;
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0 90px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-green);
+  animation: fadeUp 0.6s ease both;
+}
+
+.heading {
+  margin-top: 16px;
+  font-size: 96px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  line-height: 1;
+  animation: fadeUp 0.6s ease 0.1s both;
+}
+
+.subtext {
+  margin-top: 20px;
+  max-width: 540px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  animation: fadeUp 0.6s ease 0.22s both;
+}
+
+.phoneBlock {
+  position: relative;
+  margin-top: 44px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 30px 52px;
+  border-radius: 24px;
+  border: 1px solid var(--divider);
+  background: linear-gradient(160deg, #131316, #0a0a0b);
+  text-decoration: none;
+  overflow: visible;
+  animation: fadeUp 0.6s ease 0.34s both;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.phoneBlock:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+.phoneGlow {
+  position: absolute;
+  inset: -24px;
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+  opacity: 0.4;
+  filter: blur(6px);
+  animation: pulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.phoneLabel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.phoneNumbers {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phoneNumber {
+  display: inline-block;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--white);
+  text-decoration: none;
+  text-shadow: 0 0 30px rgba(46, 107, 255, 0.5);
+  transition: color 0.2s ease;
+}
+
+.phoneNumber:hover {
+  color: var(--accent-blue);
+}
+
+.infoGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 64px 0 80px;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  border: 1px solid var(--divider);
+  border-radius: 18px;
+}
+
+.infoIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(46, 107, 255, 0.12);
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.infoValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 0 24px 80px;
+  }
+
+  .heading {
+    font-size: 48px;
+  }
+
+  .phoneBlock {
+    padding: 24px 28px;
+  }
+
+  .phoneNumber {
+    font-size: 34px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}
