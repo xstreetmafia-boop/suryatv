@@ -190,6 +190,7 @@
   font-weight: 600;
   color: var(--white);
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 900px) {
@@ -210,6 +211,6 @@
   }
 
   .infoGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
