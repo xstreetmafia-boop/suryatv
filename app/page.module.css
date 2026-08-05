@@ -145,7 +145,7 @@
   gap: 24px;
   padding: 34px 0;
   border-bottom: 1px solid var(--divider);
-  transition: min-height 0.2s ease;
+  transition: min-height 0.2s ease, opacity 0.7s ease, transform 0.7s ease;
 }
 
 .serviceRowOpen {
@@ -508,39 +508,18 @@
 .certSection {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 48px;
-  align-items: center;
   padding: 70px 0;
   border-top: 1px solid var(--divider);
 }
 
-.certImageWrap {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 1599 / 1104;
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--divider);
-}
-
-.certImage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100%;
-  width: auto;
-  max-width: none;
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-.certText {
+.certIntro {
+  max-width: 640px;
+  margin: 0 auto 44px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
+  text-align: center;
 }
 
 .certLabel {
@@ -562,7 +541,62 @@
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-muted);
-  max-width: 480px;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.certCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.certImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1599 / 1104;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--divider);
+}
+
+.certImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.certImageWrapFlat {
+  width: 100%;
+  aspect-ratio: 1600 / 1131;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--divider);
+}
+
+.certImageFlat {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.certCaption {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
 }
 
 /* ---------- Contact CTA ---------- */
@@ -689,17 +723,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .certSection {
+  .certGrid {
     grid-template-columns: minmax(0, 1fr);
-    text-align: center;
-  }
-
-  .certImageWrap {
-    margin: 0 auto;
-  }
-
-  .certDesc {
-    max-width: none;
+    max-width: 340px;
+    gap: 40px;
   }
 
   .contactHeading {
