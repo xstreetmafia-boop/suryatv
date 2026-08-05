@@ -6,7 +6,6 @@ import styles from "./page.module.css";
 import { products as productData } from "./data/products";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import HackerText from "./components/HackerText";
 
 function SparkleIcon({ size = 18 }: { size?: number }) {
   return (
@@ -110,20 +109,6 @@ function HouseIcon() {
   );
 }
 
-function LockIcon() {
-  return (
-    <svg width={14} height={14} viewBox="0 0 24 24" fill="none">
-      <rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" strokeWidth="1.6" />
-      <path
-        d="M8 11V7a4 4 0 0 1 8 0v4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 function ArrowDownIcon() {
   return (
     <svg width={16} height={16} viewBox="0 0 24 24" fill="none">
@@ -152,7 +137,7 @@ function ChevronIcon({ direction = "left" }: { direction?: "left" | "right" }) {
   );
 }
 
-type Product = { name: string; image: string; desc: string; slug: string };
+type Product = { name: string; image: string; desc: string; slug?: string };
 
 function ProductCarousel({ products }: { products: Product[] }) {
   const [index, setIndex] = useState(0);
@@ -174,24 +159,38 @@ function ProductCarousel({ products }: { products: Product[] }) {
         className={styles.carouselTrack}
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
-        {products.map((product) => (
-          <Link
-            key={product.name}
-            href={`/products/${product.slug}`}
-            className={styles.carouselSlide}
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className={styles.carouselImage}
-            />
-            <div className={styles.carouselInfo}>
-              <h4 className={styles.carouselName}>{product.name}</h4>
-              <p className={styles.carouselDesc}>{product.desc}</p>
-              <span className={styles.carouselLink}>View details →</span>
+        {products.map((product) =>
+          product.slug ? (
+            <Link
+              key={product.name}
+              href={`/products/${product.slug}`}
+              className={styles.carouselSlide}
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className={styles.carouselImage}
+              />
+              <div className={styles.carouselInfo}>
+                <h4 className={styles.carouselName}>{product.name}</h4>
+                <p className={styles.carouselDesc}>{product.desc}</p>
+                <span className={styles.carouselLink}>View details →</span>
+              </div>
+            </Link>
+          ) : (
+            <div key={product.name} className={styles.carouselSlide}>
+              <img
+                src={product.image}
+                alt={product.name}
+                className={styles.carouselImage}
+              />
+              <div className={styles.carouselInfo}>
+                <h4 className={styles.carouselName}>{product.name}</h4>
+                <p className={styles.carouselDesc}>{product.desc}</p>
+              </div>
             </div>
-          </Link>
-        ))}
+          )
+        )}
       </div>
 
       <button
@@ -253,8 +252,63 @@ const services = [
       slug: p.slug,
     })),
   },
-  { num: "03", locked: true, teaser: "NEW PRODUCTS COMING SOON" },
-  { num: "04", locked: true, teaser: "STAY TUNED FOR MORE" },
+  {
+    num: "03",
+    title: "Network & WiFi Solutions",
+    body: [
+      "We supply and install D-Link's EAGLE PRO AI and AQUILA PRO AI Wi-Fi 6 mesh systems for whole-home and office coverage, along with fiber optics and structured cabling.",
+      "AI-powered self-optimization keeps your network fast and stable, with parental controls, voice control and WPA3 security built in.",
+    ],
+    meta: [
+      ["Speeds", "Up to 1201 Mbps"],
+      ["Devices", "Up to 128 connected"],
+      ["Coverage", "Up to 4000 Sq.Ft"],
+    ],
+    products: [
+      {
+        name: "D-Link AQUILA PRO AI M30",
+        image: "/dlink-aquila-pro-m30.png",
+        desc: "Whole-home Wi-Fi 6 mesh router with AI-enabled coverage, rapid connectivity and simplified setup.",
+      },
+      {
+        name: "D-Link EAGLE PRO AI R15",
+        image: "/dlink-eagle-pro-r15.png",
+        desc: "Smart Wi-Fi 6 AI router with WPA3 security, voice control and support for up to 128 devices.",
+      },
+      {
+        name: "D-Link AQUILA PRO AI Mesh",
+        image: "/dlink-aquila-pro-style.png",
+        desc: "Stylish, uninterrupted whole-home Wi-Fi 6 mesh coverage that blends into any room.",
+      },
+    ],
+  },
+  {
+    num: "04",
+    title: "Electrical Engineering & Contracting",
+    body: [
+      "We handle electrical installations, maintenance and panel work for homes and businesses — the wiring foundation your automation and networking systems run on.",
+    ],
+    meta: [["Services", "Installations, Maintenance, Panels"]],
+  },
+  {
+    num: "05",
+    title: "Managed IT Services & Support",
+    body: [
+      "Our managed IT services keep your systems running with proactive monitoring, cybersecurity and ongoing maintenance, so problems get caught before they become downtime.",
+    ],
+    meta: [["Includes", "Monitoring, Cybersecurity, Maintenance"]],
+  },
+  {
+    num: "06",
+    title: "Broadband & Digital TV Solutions",
+    body: [
+      "We provide high-speed broadband and digital IPTV, with dedicated service in the Bolghatty area.",
+    ],
+    meta: [
+      ["Coverage area", "Bolghatty"],
+      ["Offerings", "High-Speed Internet, IPTV"],
+    ],
+  },
 ];
 
 export default function Home() {
@@ -294,32 +348,6 @@ export default function Home() {
       <section className={styles.servicesList}>
         {services.map((service, i) => {
           const isOpen = openIndex === i;
-
-          if (service.locked) {
-            return (
-              <div
-                key={service.num}
-                className={`${styles.serviceRow} ${styles.serviceRowLocked}`}
-              >
-                <span className={styles.serviceNumberWrap}>
-                  <span className={styles.serviceNumber}>{service.num}</span>
-                </span>
-
-                <div className={styles.serviceMain}>
-                  <div className={styles.serviceTitleRow}>
-                    {service.teaser && (
-                      <h3 className={`${styles.serviceTitle} ${styles.teaserTitle}`}>
-                        <HackerText text={service.teaser} />
-                      </h3>
-                    )}
-                    <span className={styles.lockIcon}>
-                      <LockIcon />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
-          }
 
           return (
             <div
@@ -409,6 +437,27 @@ export default function Home() {
             We bring home automation, WiFi installation and SiyanoAV
             security together under one roof — installed, connected and
             supported locally across Kerala.
+          </p>
+        </div>
+      </section>
+
+      <section className={styles.certSection}>
+        <div className={styles.certImageWrap}>
+          <img
+            src="/certificate-dlink.png"
+            alt="D-Link Certificate of Completion presented to Surya Communications"
+            className={styles.certImage}
+          />
+        </div>
+        <div className={styles.certText}>
+          <span className={styles.certLabel}>Certified &amp; Authorised</span>
+          <h3 className={styles.certHeading}>
+            D-Link Certified Technical Training, 2025
+          </h3>
+          <p className={styles.certDesc}>
+            Surya Communications completed D-Link&apos;s hands-on technical
+            training programme, and is also the only authorised SiyanoAV
+            antivirus distributor for the state of Kerala.
           </p>
         </div>
       </section>

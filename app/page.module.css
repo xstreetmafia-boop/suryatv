@@ -152,32 +152,6 @@
   min-height: 320px;
 }
 
-.serviceRowLocked .serviceNumber {
-  color: rgba(255, 255, 255, 0.22);
-}
-
-.serviceRowLocked .lockIcon {
-  opacity: 0.5;
-}
-
-.lockIcon {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.teaserTitle {
-  color: var(--accent-blue);
-  font-family: "Courier New", Courier, monospace;
-  letter-spacing: 1px;
-}
-
 .serviceNumberWrap {
   display: block;
   height: 150px;
@@ -529,6 +503,68 @@
   max-width: 340px;
 }
 
+/* ---------- Certification ---------- */
+
+.certSection {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 48px;
+  align-items: center;
+  padding: 70px 0;
+  border-top: 1px solid var(--divider);
+}
+
+.certImageWrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1599 / 1104;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--divider);
+}
+
+.certImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.certText {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.certLabel {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-green);
+}
+
+.certHeading {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.certDesc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
 /* ---------- Contact CTA ---------- */
 
 .contactCta {
@@ -651,6 +687,19 @@
 
   .featureRow {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .certSection {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+  }
+
+  .certImageWrap {
+    margin: 0 auto;
+  }
+
+  .certDesc {
+    max-width: none;
   }
 
   .contactHeading {
