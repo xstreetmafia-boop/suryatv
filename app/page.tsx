@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import { products as productData } from "./data/products";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import Reveal from "./components/Reveal";
 
 function SparkleIcon({ size = 18 }: { size?: number }) {
   return (
@@ -350,7 +351,7 @@ export default function Home() {
           const isOpen = openIndex === i;
 
           return (
-            <div
+            <Reveal
               key={service.num}
               className={`${styles.serviceRow} ${isOpen ? styles.serviceRowOpen : ""}`}
             >
@@ -416,13 +417,13 @@ export default function Home() {
                   <ProductCarousel products={service.products} />
                 )}
               </div>
-            </div>
+            </Reveal>
           );
         })}
       </section>
 
       <section className={styles.featureRow}>
-        <div className={styles.featureVisual}>
+        <Reveal className={styles.featureVisual}>
           <span className={styles.pingRing} />
           <span className={styles.pingRing} />
           <span className={styles.pingRing} />
@@ -430,46 +431,69 @@ export default function Home() {
             <HouseIcon />
           </span>
           <span className={styles.visualCaption}>Always connected</span>
-        </div>
-        <div className={styles.featureText}>
+        </Reveal>
+        <Reveal className={styles.featureText}>
           <SparkleIcon size={18} />
           <p>
             We bring home automation, WiFi installation and SiyanoAV
             security together under one roof — installed, connected and
             supported locally across Kerala.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className={styles.certSection}>
-        <div className={styles.certImageWrap}>
-          <img
-            src="/certificate-dlink.png"
-            alt="D-Link Certificate of Completion presented to Surya Communications"
-            className={styles.certImage}
-          />
-        </div>
-        <div className={styles.certText}>
+        <Reveal className={styles.certIntro}>
           <span className={styles.certLabel}>Certified &amp; Authorised</span>
           <h3 className={styles.certHeading}>
-            D-Link Certified Technical Training, 2025
+            Trusted by D-Link and SiyanoAV
           </h3>
           <p className={styles.certDesc}>
             Surya Communications completed D-Link&apos;s hands-on technical
-            training programme, and is also the only authorised SiyanoAV
-            antivirus distributor for the state of Kerala.
+            training programme, and holds an authorised distributorship
+            certificate from SiyanoAV for the state of Kerala.
           </p>
+        </Reveal>
+
+        <div className={styles.certGrid}>
+          <Reveal className={styles.certCard}>
+            <div className={styles.certImageWrap}>
+              <img
+                src="/certificate-dlink.png"
+                alt="D-Link Certificate of Completion presented to Surya Communications"
+                className={styles.certImage}
+              />
+            </div>
+            <p className={styles.certCaption}>
+              D-Link Certified Technical Training — 2025
+            </p>
+          </Reveal>
+
+          <Reveal className={styles.certCard}>
+            <div className={styles.certImageWrapFlat}>
+              <img
+                src="/certificate-siyanoav.png"
+                alt="SiyanoAV Certificate of Authorized Distributorship presented to Surya Communication, Kerala State"
+                className={styles.certImageFlat}
+              />
+            </div>
+            <p className={styles.certCaption}>
+              SiyanoAV Authorised Distributor — Kerala State
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <section className={styles.contactCta}>
         <div className={styles.contactGlow} />
-        <Link href="/contact" className={styles.contactCtaLink}>
-          <h2 className={styles.contactHeading}>
-            <span className={styles.contactCircled}>CONTACT US</span>
-            <ArrowUpRightIcon size={44} />
-          </h2>
-        </Link>
+        <Reveal>
+          <Link href="/contact" className={styles.contactCtaLink}>
+            <h2 className={styles.contactHeading}>
+              <span className={styles.contactCircled}>CONTACT US</span>
+              <ArrowUpRightIcon size={44} />
+            </h2>
+          </Link>
+        </Reveal>
       </section>
 
       <SiteFooter />
