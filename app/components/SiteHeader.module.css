@@ -10,4 +10,11 @@
   display: block;
   height: 140px;
   width: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .logoImage {
+    height: 64px;
+  }
 }
