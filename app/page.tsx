@@ -226,15 +226,14 @@ function ProductCarousel({ products }: { products: Product[] }) {
 const services = [
   {
     num: "01",
-    title: "Home Automation",
+    title: "Home/Office Automation",
     body: [
-      "We design and install smart home systems that let you control lighting, security, climate and entertainment from a single app.",
-      "Every setup is tailored to your home, with professional installation, device pairing and ongoing support included.",
+      "Transform your living spaces and workspaces with seamless, intelligent automation. We design and install custom smart systems that centralize control of your lighting, security, climate, and entertainment into one intuitive app. Whether upgrading a residence or streamlining a business, every setup is tailored to your environment and includes professional installation, device pairing, and ongoing support—delivering premium technology at an unbeatable value.",
     ],
     meta: [
-      ["Devices supported", "200+"],
-      ["Setup time", "Same day"],
-      ["Warranty", "2 years"],
+      ["Devices Supported", "200+"],
+      ["Setup Time", "Same day"],
+      ["Warranty", "1 year"],
     ],
     images: ["/01.jpeg", "/011.jpeg", "/0111.jpeg"],
     moreLink: "/how-it-works",
@@ -257,8 +256,8 @@ const services = [
     num: "03",
     title: "Network & WiFi Solutions",
     body: [
-      "We supply and install D-Link's EAGLE PRO AI and AQUILA PRO AI Wi-Fi 6 mesh systems for whole-home and office coverage, along with fiber optics and structured cabling.",
-      "AI-powered self-optimization keeps your network fast and stable, with parental controls, voice control and WPA3 security built in.",
+      "Reliable connectivity tailored to your bandwidth needs. Serving as the robust backbone for your modern business and smart living spaces, we build and maintain scalable network infrastructure for properties of all sizes.",
+      "We specialize in high-performance networking and WiFi setups engineered to handle the heavy demands of modern automation, security systems, and smart devices. Our enterprise-grade solutions ensure every device in your property communicates seamlessly and securely.",
     ],
     meta: [
       ["Speeds", "Up to 1201 Mbps"],
@@ -282,14 +281,17 @@ const services = [
         desc: "Stylish, uninterrupted whole-home Wi-Fi 6 mesh coverage that blends into any room.",
       },
     ],
+    moreLink: "/services/network-wifi",
   },
   {
     num: "04",
     title: "Electrical Engineering & Contracting",
     body: [
-      "We handle electrical installations, maintenance and panel work for homes and businesses — the wiring foundation your automation and networking systems run on.",
+      "Your trusted partner for complete electrical infrastructure. Powering the future of living and working spaces, we handle projects of all sizes with precision, safety, and compliance at the forefront.",
+      "We specialize in end-to-end electrical design, installation, and maintenance—seamlessly integrating traditional power systems with smart technology and modern automation. From complex industrial wiring to intelligent, energy-efficient residential setups, we deliver innovative solutions tailored to your exact specifications.",
     ],
     meta: [["Services", "Installations, Maintenance, Panels"]],
+    moreLink: "/services/electrical",
   },
   {
     num: "05",
@@ -298,6 +300,7 @@ const services = [
       "Our managed IT services keep your systems running with proactive monitoring, cybersecurity and ongoing maintenance, so problems get caught before they become downtime.",
     ],
     meta: [["Includes", "Monitoring, Cybersecurity, Maintenance"]],
+    moreLink: "/services/it-support",
   },
   {
     num: "06",
@@ -309,6 +312,7 @@ const services = [
       ["Coverage area", "Bolghatty"],
       ["Offerings", "High-Speed Internet, IPTV"],
     ],
+    moreLink: "/services/broadband-tv",
   },
 ];
 
